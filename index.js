@@ -42,6 +42,12 @@ const run = async()=> {
             const data = await studentCollection.findOne(query)
             res.send(data)
         })
+        app.delete("/addstudent/:id",async(req,res)=> {
+            const id = req.params.id
+            const query = {_id:ObjectId(id)}
+            const data = await studentCollection.deleteOne(query)
+            res.send(data)
+        })
 
 
         app.patch("/addstudent/:id",async(req,res)=> {
